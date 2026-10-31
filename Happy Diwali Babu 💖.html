@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Diwali Babu 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#14081f;--bg2:#2a0f3a;--gold:#ffb627;--rose:#ff4d79;--cream:#fff3dc;--card:rgba(255,255,255,.07);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:inherit;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{background:radial-gradient(ellipse at 50% 120%,var(--bg2),var(--bg) 65%);color:var(--cream);font-family:'Baloo 2',system-ui,sans-serif;overflow:hidden;color-scheme:dark}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.stars i{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:tw 3s infinite alternate}
+@keyframes tw{from{opacity:.1}to{opacity:.9}}
+.page{position:fixed;inset:0;z-index:1;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 20px;padding-top:calc(24px + env(safe-area-inset-top,0px));padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+.page.on{display:flex;animation:in .6s ease}
+@keyframes in{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+h1{font-weight:800;font-size:clamp(2.4rem,11vw,4.6rem);line-height:1.05;margin:0 0 14px;color:var(--gold);text-shadow:0 0 24px rgba(255,182,39,.55)}
+h2{font-weight:600;font-size:clamp(1.4rem,6vw,2rem);margin:0 0 18px;line-height:1.3}
+p{margin:0 0 14px;font-size:1.1rem;max-width:34rem}
+.btn{font:inherit;font-weight:600;font-size:1.1rem;color:#2b0a00;background:linear-gradient(135deg,#ffd166,var(--gold));border:0;border-radius:999px;padding:12px 32px;margin-top:8px;box-shadow:0 6px 24px rgba(255,182,39,.4);cursor:pointer}
+.btn:active{transform:scale(.96)}
+.diya{font-size:3rem;animation:fl 2s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-8px) scale(1.08);filter:drop-shadow(0 0 14px #ffb627)}}
+.opts{display:grid;gap:10px;width:min(100%,26rem)}
+.opt{font:inherit;font-size:1.1rem;color:var(--cream);background:var(--card);border:1.5px solid rgba(255,182,39,.45);border-radius:16px;padding:12px;cursor:pointer}
+.opt.bad{opacity:.35;text-decoration:line-through;border-color:#888;pointer-events:none}
+.opt.good{background:rgba(120,220,140,.22);border-color:#7ddc8c;pointer-events:none}
+.msg{min-height:3.2rem;margin-top:14px;font-size:1.2rem;font-weight:600}
+.prog{font-size:.95rem;opacity:.7;margin-bottom:8px}
+.arena{position:relative;width:min(100%,26rem);height:52vh;border:1.5px dashed rgba(255,182,39,.5);border-radius:20px;overflow:hidden;touch-action:none}
+.h{position:absolute;font-size:2.2rem;user-select:none;cursor:pointer}
+canvas#sn{background:rgba(0,0,0,.35);border:1.5px solid rgba(255,182,39,.5);border-radius:14px;touch-action:none}
+.pad{display:grid;grid-template-columns:repeat(3,52px);gap:6px;margin-top:10px}
+.pad button{font-size:1.2rem;height:44px;border-radius:12px;border:1px solid rgba(255,182,39,.5);background:var(--card);color:var(--cream)}
+input[type=range]{width:min(86%,22rem);accent-color:var(--rose);height:34px}
+.big{font-size:3.4rem}
+#vid{width:min(100%,32rem);max-height:56vh;border-radius:18px;background:#000;box-shadow:0 0 40px rgba(255,77,121,.4)}
+.letter{width:min(100%,34rem);max-height:70vh;overflow-y:auto;background:linear-gradient(160deg,#fff3dc,#ffe0b8);color:#4a1230;border-radius:18px;padding:22px 20px;text-align:left;box-shadow:0 10px 40px rgba(0,0,0,.5);font-family:'Dancing Script','Baloo 2',cursive;font-size:1.45rem;line-height:1.55}
+.letter p{max-width:none;font-size:inherit;opacity:0;transform:translateY(8px);transition:.8s}
+.letter p.s{opacity:1;transform:none}
+.letter b{color:#d11a55}
+#mute{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:5;width:40px;height:40px;padding:0;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:var(--gold);border-radius:50%;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);cursor:pointer;opacity:.85}
+#mute svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#mute.off{color:rgba(255,243,220,.5)}
+#mute.off .w,#mute:not(.off) .x{display:none}
+.fl{position:fixed;z-index:4;pointer-events:none;font-size:2rem;animation:up 2.6s ease-out forwards}
+@keyframes up{to{transform:translateY(-70vh) rotate(25deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){.diya,.stars i{animation:none}}
+.row{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.dy{font-size:3rem;background:none;border:0;filter:grayscale(1) brightness(.55);transition:.4s}
+.dy.on{filter:drop-shadow(0 0 18px #ffb627)}
+.grid{display:grid;grid-template-columns:repeat(4,64px);gap:10px}
+.cd{height:78px;font-size:2rem;border-radius:14px;border:1.5px solid rgba(255,182,39,.5);background:var(--card);color:var(--cream)}
+.cd.f{background:rgba(255,182,39,.25)}
+.rs{width:min(100%,24rem);min-height:7rem;display:flex;align-items:center;justify-content:center;background:var(--card);border:1.5px solid rgba(255,182,39,.5);border-radius:20px;padding:18px;font-size:1.4rem;font-weight:600;margin-bottom:12px}
+#hold{touch-action:none;user-select:none;-webkit-user-select:none}
+#pb{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--rose));z-index:6;transition:width .6s ease}
+.lw{width:min(100%,32rem);height:66vh;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 16%,#000 80%,transparent);mask-image:linear-gradient(transparent,#000 16%,#000 80%,transparent)}
+#ltr{padding:30vh 6px}
+.ln{font-family:'Dancing Script','Baloo 2',cursive;font-weight:600;font-size:1.75rem;line-height:1.45;margin:0 0 1.3rem;text-align:center;opacity:0;filter:blur(12px);transform:translateY(16px);transition:opacity 1.8s ease,filter 1.8s ease,transform 1.8s ease,color 1.5s}
+.ln.s{opacity:1;filter:blur(0);transform:none}
+.ln.dim{opacity:.45}
+.ln b{color:var(--gold);font-weight:700}
+.sk{background:none;border:0;color:var(--cream);opacity:.55;font:inherit;text-decoration:underline;margin-top:6px}
+.tm{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:min(100%,24rem);margin-bottom:12px}
+.pl{font:inherit;color:var(--cream);background:var(--card);border:1.5px solid rgba(255,182,39,.45);border-radius:16px;padding:10px;font-size:1.05rem}
+.pl small{display:block;opacity:.65;font-size:.8rem}
+.pl.cap{border-color:#7ddc8c}
+.page.on.shk{animation:shk .5s}
+@keyframes shk{10%,90%{transform:translateX(-4px)}20%,80%{transform:translateX(8px)}30%,50%,70%{transform:translateX(-14px)}40%,60%{transform:translateX(14px)}}
+.opt.bad{animation:rd .7s}
+@keyframes rd{0%{background:rgba(255,60,80,.7);transform:scale(1.04)}100%{background:var(--card);transform:none}}
+.opt.good{animation:pp .6s}
+@keyframes pp{40%{transform:scale(1.1)}100%{transform:none}}
+.page.on.wob{animation:wob .7s}
+@keyframes wob{20%{transform:rotate(-5deg)}40%{transform:rotate(5deg)}60%{transform:rotate(-3deg)}80%{transform:rotate(3deg)}}
+.page.on.drp{animation:drp .7s}
+@keyframes drp{30%{transform:translateY(-30px)}60%{transform:translateY(20px)}80%{transform:translateY(-8px)}}
+.page.on.flp{animation:flp .8s}
+@keyframes flp{to{transform:perspective(600px) rotateY(360deg)}}
+.page.on.zmo{animation:zmo .6s}
+@keyframes zmo{40%{transform:scale(.85)}70%{transform:scale(1.06)}}
+.opt.g1{animation:pp .6s}.opt.g2{animation:sp .7s}.opt.g3{animation:rb .7s}
+@keyframes sp{to{transform:rotate(360deg)}}
+@keyframes rb{30%{transform:scaleX(1.25) scaleY(.75)}50%{transform:scaleX(.8) scaleY(1.2)}70%{transform:scaleX(1.1) scaleY(.9)}}
+.nb{position:absolute;width:52px;height:48px;border-radius:14px;font:inherit;font-weight:600;font-size:1.2rem;border:1.5px solid rgba(255,182,39,.5);background:var(--card);color:var(--cream);transition:left .25s,top .25s;touch-action:none}
+.fb{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;width:min(100%,26rem);margin-bottom:14px}
+.fw{font:inherit;font-size:1.7rem;width:74px;padding:8px 4px;color:var(--cream);background:var(--card);border:1.5px solid rgba(255,182,39,.45);border-radius:16px}
+.fw small{display:block;font-size:.75rem;opacity:.75}
+.fw.d{background:rgba(255,182,39,.22);border-color:var(--gold)}
+.pm{width:min(100%,28rem)}
+#fb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));width:min(94vw,26rem);margin:0}
+.fb[hidden]{display:none}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="stars" id="stars"></div>
+<div id="pb"></div>
+<button id="mute" aria-label="Music on off"><svg viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor"/><path class="w" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
+
+<!-- 0 INTRO -->
+<section class="page on">
+  <div class="diya">🪔</div>
+  <h1>HAPPY DIWALI<br>BABU 💖</h1>
+  <p>Ek chhota sa surprise sirf tumhare liye ✨</p>
+  <button class="btn" data-next>Khol ke dekho 🎇</button>
+</section>
+
+<!-- 1 -->
+<section class="page">
+  <div class="big">🎮</div>
+  <h2>Chalo kuch games khelte hain ✨</h2>
+  <button class="btn" data-next>Let’s play!</button>
+</section>
+
+<!-- 2-6 QUIZ -->
+<section class="page q" data-ans="12 July" data-ok="Wahh babu 💖 yaad tha tumhe..." data-no="Bhool gayi na 🥲">
+  <div class="prog">Sawal 1 / 5</div><h2>Hum kitni date ko mile the?</h2>
+  <div class="opts"><button class="opt">14 Feb</button><button class="opt">12 July</button><button class="opt">5 August</button><button class="opt">20 June</button></div>
+  <div class="msg"></div><button class="btn nx" data-next hidden>Aage chalo</button>
+</section>
+<section class="page q" data-ans="Aap" data-ok="Bilkul sahi 😁" data-no="Maine kab gussa kiya 🥲">
+  <div class="prog">Sawal 2 / 5</div><h2>Hum dono me se zyada gussa kaun karta hai?</h2>
+  <div class="opts"><button class="opt">Aap</button><button class="opt">Main</button></div>
+  <div class="msg"></div><button class="btn nx" data-next hidden>Aage chalo</button>
+</section>
+<section class="page q" data-ans="17 Dec" data-ok="Wahh babu 💖 yaad tha tumhe..." data-no="Bhool gayi na 🥲">
+  <div class="prog">Sawal 3 / 5</div><h2>Mera birthday kab aata hai?</h2>
+  <div class="opts"><button class="opt">7 Dec</button><button class="opt">27 Nov</button><button class="opt">17 Dec</button><button class="opt">17 Jan</button></div>
+  <div class="msg"></div><button class="btn nx" data-next hidden>Aage chalo</button>
+</section>
+<section class="page q" data-ans="Aap" data-ok="Ahmm 🌚 sahi jawab" data-no="Acha ji 😓">
+  <div class="prog">Sawal 4 / 5</div><h2>Dono me se kam dimaag wala kaun hai? 🌚</h2>
+  <div class="opts"><button class="opt">Aap</button><button class="opt">Main</button></div>
+  <div class="msg"></div><button class="btn nx" data-next hidden>Aage chalo</button>
+</section>
+<section class="page q" data-ans="Nahi jaungi" data-ok="🎊🎉 Yeeeh! Ye hui na baat 💖" data-no="🔪" data-boom="1">
+  <div class="prog">Sawal 5 / 5</div><h2>Kabhi chhod ke to nahi jaogi na? 🙂</h2>
+  <div class="opts"><button class="opt">Haan, jaungi</button><button class="opt">Nahi jaungi</button></div>
+  <div class="msg"></div><button class="btn nx" data-next hidden>Ab asli games 😈</button>
+</section>
+
+<!-- 7 HEARTS -->
+<section class="page" id="g1">
+  <h2>Game 1: Dil pakdo 💖</h2>
+  <p>20 second me kam se kam 10 dil pakdo! <b id="sc1">0</b> pakde</p>
+  <div class="arena" id="ar"></div>
+  <div class="msg" id="m1"></div><button class="btn" id="b1" data-next hidden>Next</button>
+</section>
+
+<section class="page" id="gd">
+  <h2>Game 2: Diya jalao 🪔</h2>
+  <p>Saare 5 diye jalao, tab Diwali shuru!</p>
+  <div class="row" id="dy"></div>
+  <div class="msg" id="md"></div><button class="btn" id="bd" data-next hidden>Next</button>
+</section>
+<section class="page" id="gm">
+  <h2>Game 3: Jodi milao 💞</h2>
+  <p>Chaal: <b id="mc">0</b></p>
+  <div class="grid" id="mg"></div>
+  <div class="msg" id="mm"></div><button class="btn" id="bm" data-next hidden>Next</button>
+</section>
+
+<!-- 9 LOVE METER -->
+<section class="page" id="g3">
+  <h2>Game 4: Kitna pyaar karti ho mujhse? 🥰</h2>
+  <input type="range" id="rg" min="0" max="100" value="0">
+  <div class="big" id="lv">0%</div>
+  <div class="msg" id="m3"></div><button class="btn" id="b3" data-next hidden>Next</button>
+</section>
+
+<!-- 10 TROLL -->
+<section class="page" id="g4">
+  <h2>Game 5: Sach sach batao 🤨<br>Kya tum mujhse naraz ho?</h2>
+  <div style="position:relative;width:min(100%,22rem);height:150px">
+    <button class="btn" id="yes" style="position:absolute;left:8%;top:20px;background:#aaa">Haan 😤</button>
+    <button class="btn" id="no" style="position:absolute;right:8%;top:20px">Nahi 🙏</button>
+  </div>
+  <div class="msg" id="m4"></div><button class="btn" id="b4" data-next hidden>Next</button>
+</section>
+
+<section class="page" id="gp">
+  <h2>Ek chhota sawal: tumhe kitne babies chahiye? 👶</h2>
+  <div class="arena" id="ba" style="height:230px"></div>
+  <div class="msg" id="mp"></div>
+  <button class="btn" id="pk">10+ 👶</button><button class="btn" id="bp" data-next hidden>Next</button>
+</section>
+<section class="page" id="gw">
+  <h2>Game 6: Tumhara Diwali gift kya milega? 🎁</h2>
+  <div class="msg" id="wh" style="font-size:2rem;min-height:5rem">🎁</div>
+  <div class="msg" id="mw"></div>
+  <button class="btn" id="sp">Ghumao 🎡</button><button class="btn" id="bw" data-next hidden>Next</button>
+</section>
+<section class="page" id="gs">
+  <h2>Game 7: Pagalpan scanner</h2>
+  <p>Button ko dabake rakho jab tak scan poora na ho</p>
+  <div class="big" id="pc">0%</div>
+  <button class="btn" id="hold">Dabake rakho 👆</button>
+  <div class="msg" id="ms"></div><button class="btn" id="bs" data-next hidden>Next</button>
+</section>
+<section class="page" id="gr">
+  <h2>Tumse pyaar karne ke reasons 💖</h2>
+  <div class="rs" id="rc">Tap karo 👇</div>
+  <button class="btn" id="rb">Reason dikhao</button><button class="btn" id="br" data-next hidden>Next</button>
+</section>
+<section class="page" id="gc">
+  <h2>Last game: Patakhe phodo 🧨</h2>
+  <p>Button ko 15 baar dabao, Diwali ka asli maza!</p>
+  <div class="big" id="cn">0/15</div>
+  <button class="btn" id="bk" style="font-size:1.6rem">🧨 BOOM</button>
+  <div class="msg" id="mk"></div><button class="btn" id="bc" data-next hidden>Ab letter padho 💌</button>
+</section>
+
+<!-- 12 LETTER -->
+<section class="page" id="lt">
+  
+  <div class="letter" id="oldltr" hidden>
+    <p>Baaabuu 😘 love you love you love you love you... 💖💖</p>
+    <p>Sabse achi ho tum 🥹. Tumhare aane ke baad sab kuch change ho gaya, sach me. I swear, <b>luck charm</b> ho tum mera 🍀✨ Devi ji 🙏 please please please kabhi chhod ke mat jana, aur mujh par apni kripa banaye rakhna 😓💖</p>
+    <p>Dekho, main tumhara saath kabhi nahi chhodunga. Tum kahogi bhi to bhi nahi... 🥺 aur haan, marne ke baad bhi aatma banke bhatakta rahunga 👻😁 (ab to maan jao kitna pyaar hai 😂)</p>
+    <p>Tum bohot achi ho 💕 bohot zyada. Tumhari hasi, tumhara gussa 😤, tumhara ye pagalpan 🤪 sab kuch mujhe pasand hai. Tumhare saath har din mujhe Diwali lagta hai 🪔🎆</p>
+    <p>I love you a lot 💖💖 babu please kabhi chhod ke mat jana 🥹 main sabko mana lunga... mummy, papa, nana, nani, bade papa, chhote papa 👨‍👩‍👧‍👦 sabbbb ko. Bas tum saath dena 🤝💍</p>
+    <p>Is Diwali pe bas ek hi dua hai 🙏 ki tumhari har raat roshan rahe 🪔, tumhare chehre par hamesha smile rahe 😊, aur hum dono hamesha saath rahein 💑♾️</p>
+    <p>At last yahi kahunga ki...</p>
+    <p><b>Meri phooljhadi 🎇 ko meri taraf se Happy Diwali!</b> Enjoy 💖🪔✨🎆💋</p>
+    <p style="text-align:right">Tumhara hamesha wala 💞</p>
+  </div>
+  <div class="lw" id="lw"><div id="ltr"></div></div>
+  <button class="sk" id="sk">Skip</button>
+  <button class="btn" id="end" hidden>Ek last surprise 🎆</button>
+</section>
+
+<section class="page" id="gx">
+  <h2>Apne patakhe khud chalao</h2>
+  <p id="fp">Har tarah ka patakha try karo (<b id="fc">0</b>/7)</p>
+  <div class="fb" id="fb"></div>
+  <div class="pm" id="pmsg" hidden></div>
+  <button class="btn" id="bx" data-next hidden>Aage</button>
+</section>
+<section class="page" id="en">
+  <div class="diya">🪔</div>
+  <h1>HAPPY DIWALI<br>MERI JAAN 💖</h1>
+  <p>Hamesha saath. Hamesha tumhara. 🎆</p>
+  <button class="btn" id="again">Phir se dekho 🔁</button>
+</section>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+// stars
+for(let i=0;i<60;i++){const s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';$('#stars').appendChild(s)}
+// ---------- audio (generated, no files needed)
+let ac,muted=false,mg,started=false;
+function audio(){if(ac)return;ac=new (window.AudioContext||window.webkitAudioContext)();mg=ac.createGain();mg.gain.value=1;mg.connect(ac.destination);
+ const notes=[0,2,4,7,9,12,9,7,4,7,4,2,0,2,4,0],base=261.63;let i=0;
+ setInterval(()=>{if(muted||ac.state!=='running')return;const f=base*Math.pow(2,notes[i%16]/12);i++;
+  const o=ac.createOscillator(),g=ac.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(0,ac.currentTime);g.gain.linearRampToValueAtTime(.09,ac.currentTime+.04);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+.9);o.connect(g);g.connect(mg);o.start();o.stop(ac.currentTime+1);
+  if(i%4==1){const b=ac.createOscillator(),bg=ac.createGain();b.frequency.value=base/2;bg.gain.setValueAtTime(.06,ac.currentTime);bg.gain.exponentialRampToValueAtTime(.001,ac.currentTime+1.6);b.connect(bg);bg.connect(mg);b.start();b.stop(ac.currentTime+1.7)}
+ },420)}
+function pop(big){if(!ac||muted)return;const n=ac.sampleRate*(big?.5:.25),buf=ac.createBuffer(1,n,ac.sampleRate),d=buf.getChannelData(0);
+ for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/n,3);
+ const s=ac.createBufferSource();s.buffer=buf;const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=big?900:1800;const g=ac.createGain();g.gain.value=big?.5:.28;s.connect(f);f.connect(g);g.connect(mg);s.start()}
+function tone(f,t=.15){if(!ac||muted)return;const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=f;g.gain.setValueAtTime(.12,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+t);o.connect(g);g.connect(mg);o.start();o.stop(ac.currentTime+t)}
+$('#mute').onclick=()=>{muted=!muted;$('#mute').classList.toggle('off',muted)};
+// ---------- fireworks
+const cv=$('#fx'),cx=cv.getContext('2d');let P=[];
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener('resize',rs);
+function burst(x,y,n=60,sound=true){const h=Math.random()*360;for(let i=0;i<n;i++){const a=Math.PI*2*i/n,v=2+Math.random()*4;P.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,c:`hsl(${h+Math.random()*50},100%,62%)`})}if(sound)pop()}
+function loop(){cx.globalCompositeOperation='destination-out';cx.fillStyle='rgba(0,0,0,.2)';cx.fillRect(0,0,cv.width,cv.height);cx.globalCompositeOperation='lighter';
+ P=P.filter(p=>p.l>0);for(const p of P){p.x+=p.vx;p.y+=p.vy;p.vy+=p.g||.045;p.vx*=.985;p.l-=p.d||.011;cx.globalAlpha=Math.max(p.l,0);cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,2,0,7);cx.fill()}
+ cx.globalAlpha=1;requestAnimationFrame(loop)}loop();
+let rate=1300;(function auto(){if(started)burst(innerWidth*(.15+Math.random()*.7),innerHeight*(.1+Math.random()*.4));setTimeout(auto,rate*(.7+Math.random()*.8))})();
+function boom(){for(let i=0;i<7;i++)setTimeout(()=>burst(Math.random()*innerWidth,Math.random()*innerHeight*.6,80),i*200);
+ for(let i=0;i<16;i++){const e=document.createElement('div');e.className='fl';e.textContent=['🎊','🎉','💖','✨'][i%4];e.style.left=Math.random()*95+'%';e.style.top=(60+Math.random()*35)+'vh';e.style.animationDelay=Math.random()*.6+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),3500)}pop(true)}
+// ---------- navigation
+const pages=$$('.page');let cur=0;
+function go(i){pages[cur].classList.remove('on');cur=i;pages[cur].classList.add('on');const id=pages[i].id,IN={g1,gd,gm,g3,g4,gp,gw,gs,gr,gx,gc,lt:reveal,en:boom};
+ rate=(i==0||id=='lt'||id=='en'||id=='gx')?900:2600;$('#pb').style.width=(i/(pages.length-1)*100)+'%';if(IN[id])IN[id]()}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-next]');if(b){audio();if(ac.state==='suspended')ac.resume();if(!started){started=true;burst(innerWidth/2,innerHeight*.3,90);setTimeout(()=>burst(innerWidth*.25,innerHeight*.25),300);setTimeout(()=>burst(innerWidth*.75,innerHeight*.25),550)}go(cur+1)}});
+$('#again').onclick=()=>go(0);
+$('#end').onclick=()=>go(cur+1);
+// ---------- quiz
+$$('.q').forEach(q=>{q.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{const m=q.querySelector('.msg');
+ if(o.textContent===q.dataset.ans){o.classList.add('good');m.textContent=q.dataset.ok;q.querySelector('.nx').hidden=false;tone(660);tone(880,.3);rain(pick(RG),10);anim(o,['g1','g2','g3']);try{navigator.vibrate&&navigator.vibrate(40)}catch(e){}burst(innerWidth/2,innerHeight*.3,70);if(q.dataset.boom)boom()}
+ else{o.classList.add('bad');m.textContent=q.dataset.no;wrong();rain(pick(WR),9);anim(q,['shk','wob','drp','flp','zmo'])}})});
+// ---------- game 1 hearts
+let t1;function g1(){const ar=$('#ar');ar.innerHTML='';let s=0,left=20;$('#sc1').textContent=0;$('#m1').textContent='';$('#b1').hidden=true;clearInterval(t1);
+ t1=setInterval(()=>{left-=.6;if(left<=0){clearInterval(t1);ar.innerHTML='';$('#m1').textContent=s>=10?'Wahh! Dil churane me expert 😍':'Sirf '+s+'? Mere dil ko to tum roz pakad leti ho';$('#b1').hidden=false;return}
+  const h=document.createElement('div');h.className='h';h.textContent=['💖','💗','💕','💘'][Math.random()*4|0];h.style.left=Math.random()*85+'%';let y=-40,sp=2+Math.random()*2.5;h.style.top=y+'px';ar.appendChild(h);
+  const mv=setInterval(()=>{y+=sp;h.style.top=y+'px';if(y>ar.clientHeight){clearInterval(mv);h.remove()}},16);
+  h.onpointerdown=()=>{s++;$('#sc1').textContent=s;tone(700,.08);clearInterval(mv);h.remove()}},600)}
+/* snake removed
+let tm,dir,sn,fd,sc;
+function stopSn(){clearInterval(tm)}
+function g2(){const c=$('#sn'),x=c.getContext('2d'),N=15,S=20;sn=[{x:7,y:7}];dir={x:1,y:0};sc=0;$('#sc2').textContent=0;$('#b2').hidden=true;
+ const nf=()=>fd={x:Math.random()*N|0,y:Math.random()*N|0};nf();clearInterval(tm);
+ tm=setInterval(()=>{const h={x:(sn[0].x+dir.x+N)%N,y:(sn[0].y+dir.y+N)%N};
+  if(sn.some(p=>p.x==h.x&&p.y==h.y)){sn=[{x:7,y:7}];sc=0;$('#sc2').textContent=0}else{sn.unshift(h);if(h.x==fd.x&&h.y==fd.y){sc++;$('#sc2').textContent=sc;tone(800,.1);nf();if(sc>=5){clearInterval(tm);$('#b2').hidden=false;boom();return}}else sn.pop()}
+  x.clearRect(0,0,300,300);x.font='18px serif';x.fillText('💖',fd.x*S,fd.y*S+17);sn.forEach((p,i)=>{x.fillStyle=i?'#7ddc8c':'#ffd166';x.beginPath();x.roundRect(p.x*S+1,p.y*S+1,S-2,S-2,6);x.fill()})},170)}
+const dm={u:[0,-1],d:[0,1],l:[-1,0],r:[1,0]};
+function setD(k){const [a,b]=dm[k];if(dir&&(a!==-dir.x||b!==-dir.y))dir={x:a,y:b}}
+$$('.pad button').forEach(b=>b.onclick=()=>setD(b.dataset.d));
+addEventListener('keydown',e=>{const m={ArrowUp:'u',ArrowDown:'d',ArrowLeft:'l',ArrowRight:'r'}[e.key];if(m){e.preventDefault();setD(m)}});
+let sx,sy;const sc_=$('#sn');sc_.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+sc_.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>Math.abs(dy))setD(dx>0?'r':'l');else setD(dy>0?'d':'u')});
+*/ // love meter
+function g3(){const r=$('#rg');r.value=0;$('#lv').textContent='0%';$('#m3').textContent='Slider ko kheench ke batao 👉';$('#b3').hidden=true;
+ r.oninput=()=>{const v=+r.value;$('#lv').textContent=v<100?v+'%':'∞%';tone(300+v*6,.05);
+  $('#m3').textContent=v<30?'Bas itna? 🥲':v<70?'Thoda aur':v<100?'Haan ab theek hai... 😌':'Meter toot gaya 💥 pyaar hai hi itna zyada! 😭💖';
+  if(v==100){boom();$('#b3').hidden=false}}}
+// ---------- game 4 troll
+function g4(){$('#m4').textContent='';$('#b4').hidden=true;const y=$('#yes'),a=$('#no');y.style.left='8%';y.style.top='20px';
+ const run=e=>{e.preventDefault();y.style.left=Math.random()*60+'%';y.style.top=Math.random()*100+'px';$('#m4').textContent=['Pakad ke dikhao','Itni jaldi nahi 🏃','Arre arre kahan 😂','Haan wala button shy hai 🙈'][Math.random()*4|0]};
+ y.onpointerdown=run;y.onmouseenter=run;a.onclick=()=>{$('#m4').textContent='Good girl 😌 pata tha mujhe!';tone(700);burst(innerWidth/2,innerHeight*.3,80);$('#b4').hidden=false}}
+// ---------- letter
+const LT=['Babu...','love you, love you, love you, love you 💖','Sabse achi ho tum.','Tumhare aane ke baad sab kuch change ho gaya, sach me.','I swear, <b>luck charm</b> ho tum mera 🍀','Devi ji 🙏 please please please,','kabhi chhod ke mat jana,','aur mujh par apni kripa banaye rakhna.','Dekho, main tumhara saath kabhi nahi chhodunga.','Tum kahogi bhi to bhi nahi.','Aur haan, marne ke baad bhi aatma banke bhatakta rahunga 👻','Tum bohot achi ho, bohot zyada.','Tumhari hasi, tumhara gussa, tumhara pagalpan,','sab kuch mujhe pasand hai.','Hum 9th me mile the,','aur tab se tumhare saath har din Diwali jaisa lagta hai 🪔','Is Diwali bas ek hi dua hai:','tumhari har raat roshan rahe,','tumhare chehre par hamesha muskaan rahe,','aur hamari ye dosti, ye pyaar hamesha aise hi bana rahe ✨','I love you a lot.','Babu please, kabhi chhod ke mat jana.','Main sabko mana lunga:','mummy, papa, nana, nani, bade papa, chhote papa,','sabbbb ko. Bas tum saath dena.','At last yahi kahunga ki...','<b>Meri phooljhadi 🎇 ko meri taraf se Happy Diwali!</b>','Enjoy 💖','Tumhara hamesha wala'];
+let lto=[];
+function reveal(){lto.forEach(clearTimeout);lto=[];const w=$('#lw'),c=$('#ltr');c.innerHTML='';$('#end').hidden=true;$('#sk').hidden=false;let t=1500;
+ LT.forEach((s,i)=>{const p=document.createElement('p');p.className='ln';p.innerHTML=s;c.appendChild(p);
+  lto.push(setTimeout(()=>{p.classList.add('s');if(i>0)c.children[i-1].classList.add('dim');w.scrollTo({top:p.offsetTop-w.clientHeight/2+p.clientHeight/2,behavior:'smooth'});if(i%3==0)burst(Math.random()*innerWidth,Math.random()*innerHeight*.3,40,false)},t));
+  t+=1500+s.replace(/<[^>]+>/g,'').length*70});
+ lto.push(setTimeout(()=>{$('#end').hidden=false;$('#sk').hidden=true;boom()},t))}
+$('#sk').onclick=()=>{lto.forEach(clearTimeout);[...$('#ltr').children].forEach(p=>p.classList.add('s','dim'));$('#lw').scrollTo({top:99999,behavior:'smooth'});$('#end').hidden=false;$('#sk').hidden=true}
+// ---------- game 2 diyas
+function gd(){const r=$('#dy');r.innerHTML='';let n=0;$('#md').textContent='';$('#bd').hidden=true;
+ for(let i=0;i<5;i++){const b=document.createElement('button');b.className='dy';b.textContent='🪔';b.onclick=()=>{if(b.classList.contains('on'))return;b.classList.add('on');b.innerHTML='<small style="display:block;font-size:1.6rem">🔥</small>🪔';n++;tone(400+n*120,.25);burst(innerWidth*(.2+i*.15),innerHeight*.25,45);
+  if(n==5){$('#md').textContent='Jag-mag jag-mag! Ab Diwali shuru 🎇';boom();$('#bd').hidden=false}};r.appendChild(b)}}
+// ---------- game 3 memory
+function gm(){const g=$('#mg');g.innerHTML='';$('#mm').textContent='';$('#bm').hidden=true;let o=[],m=0,c=0,lock=false;$('#mc').textContent=0;const e=['💖','🪔','🎆','🌸'];
+ [...e,...e].sort(()=>Math.random()-.5).forEach(v=>{const b=document.createElement('button');b.className='cd';b.textContent='❓';b.onclick=()=>{if(lock||b.classList.contains('f'))return;b.classList.add('f');b.textContent=v;o.push(b);tone(500,.08);
+  if(o.length==2){c++;$('#mc').textContent=c;const[a,d]=o;o=[];if(a.textContent==d.textContent){m++;tone(900,.2);if(m==4){$('#mm').textContent='Wahh! '+c+' chaal me saari jodi mil gayi 💞';$('#bm').hidden=false;boom()}}else{lock=true;setTimeout(()=>{a.classList.remove('f');d.classList.remove('f');a.textContent=d.textContent='❓';lock=false},700)}}};g.appendChild(b)})}
+// ---------- game 6 gift wheel
+const GF=['Ek bada sa Diwali card 💌','Meri saari chocolates 🍫','Sabse bada gift: main 😎','Ice-cream treat 🍦','Sabse bada gift: main 😎','Ek lamba sa hug 🤗'];
+function gw(){$('#wh').textContent='🎁';$('#mw').textContent='';$('#bw').hidden=true}
+$('#sp').onclick=function(){const b=this,w=$('#wh'),f=GF[2];let t=0,d=60;b.disabled=true;$('#mw').textContent='';
+ (function s(){w.textContent=GF[t++%6];tone(300+t%6*60,.05);if(d<400||GF[(t-1)%6]!==f){d*=1.09;setTimeout(s,d)}else{$('#mw').textContent='Phir se main hi nikla! Wheel bhi jaanta hai tumhe kya chahiye 😂';boom();$('#bw').hidden=false;b.disabled=false;b.textContent='Dobara ghumao 🎡'}})()};
+// ---------- game 7 scanner
+let hv,hp=0;const hd=$('#hold');
+function gs(){hp=0;$('#pc').textContent='0%';$('#ms').textContent='';$('#bs').hidden=true}
+hd.oncontextmenu=e=>e.preventDefault();
+hd.onpointerdown=()=>{clearInterval(hv);hv=setInterval(()=>{hp=Math.min(100,hp+2);$('#pc').textContent=hp+'%';tone(200+hp*5,.05);if(hp>=100){clearInterval(hv);$('#ms').textContent='Result: Pagal level 999% Bilkul mere jaisi! Perfect match 💖';boom();$('#bs').hidden=false}},60)};
+const hu=()=>{if(hp<100){clearInterval(hv);if(hp>0){hp=0;$('#pc').textContent='0%';$('#ms').textContent='Beech me chhod diya? 😤 Poora karo!'}}};
+hd.onpointerup=hu;hd.onpointerleave=hu;hd.onpointercancel=hu;
+// ---------- reasons
+const RS=['Tumhari hasi 😊 jo meri battery charge karti hai','Tumhara gussa 😤 jo bohot cute lagta hai','Tum meri luck charm ho 🍀','Tumhari jhooti-moothi ladaiyan 😂 jinke baad aur pyaar aata hai','Tum mujhe waisa hi apnati ho jaisa main hoon 🥹','Tumhare saath bhookh me bhi sab achha lagta hai 🍕','Aur 1000 reasons hain... batane me poori life lag jayegi ♾️💖'];let ri=0;
+function gr(){ri=0;$('#rc').textContent='Tap karo 👇';$('#br').hidden=true;$('#rb').hidden=false}
+$('#rb').onclick=()=>{$('#rc').textContent=RS[ri++];tone(600+ri*60,.2);burst(innerWidth/2,innerHeight*.2,50);if(ri>=RS.length){$('#rb').hidden=true;$('#br').hidden=false}};
+// ---------- last game crackers
+let ck=0;function gc(){ck=0;$('#cn').textContent='0/15';$('#mk').textContent='';$('#bc').hidden=true}
+$('#bk').onclick=()=>{if(ck>=15)return;ck++;$('#cn').textContent=ck+'/15';burst(Math.random()*innerWidth,Math.random()*innerHeight*.5,70);pop(true);if(ck==15){$('#mk').textContent='Diwali ho gayi! 🎆🎇 Boom boom boom!';boom();$('#bc').hidden=false}};
+/* old code removed
+const FP=['Chai wala bhaiya','Mera dost','Tumhari best friend','Teddy bear 🧸','Mera chhota bhai','Mummy ki chappal'];
+function gf(){$$('#gf .tm button').forEach((b,k)=>{let n=k*2;const sp=b.querySelector('span');sp.textContent=FP[n];b.onclick=()=>{n=(n+1)%FP.length;sp.textContent=FP[n];tone(500,.06)}});$('#mf').textContent='';$('#bf').hidden=true;$('#kf').disabled=false}
+$('#kf').onclick=function(){this.disabled=true;const m=$('#mf');m.textContent='Match chal raha hai... ⚽';let n=0;const t=setInterval(()=>{burst(Math.random()*innerWidth,Math.random()*innerHeight*.4,40);if(++n==6){clearInterval(t);m.textContent='Final score: Hamari team 7 - 0! Captain ne 6 gol kiye, maine sirf 1 😅';boom();$('#bf').hidden=false}},700)};
+function wrong(){try{navigator.vibrate&&navigator.vibrate([90,50,90,50,160])}catch(e){}
+ if(!ac||muted)return;[0,.2].forEach(d=>{const t=ac.currentTime+d,o=ac.createOscillator(),g=ac.createGain();o.type='sawtooth';o.frequency.setValueAtTime(170,t);o.frequency.exponentialRampToValueAtTime(80,t+.17);g.gain.setValueAtTime(.14,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);o.connect(g);g.connect(mg);o.start(t);o.stop(t+.2)})}
+function rain(l,n){for(let i=0;i<n;i++){const e=document.createElement('div');e.className='fl';e.textContent=l[i%l.length];e.style.left=(8+Math.random()*84)+'%';e.style.top=(55+Math.random()*30)+'vh';e.style.animationDelay=Math.random()*.4+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),3200)}}
+const pick=a=>a[Math.random()*a.length|0];
+const WR=[['😢','💔','😕'],['😤','💢','🙅'],['🥀','😭','🙈'],['💥','😵','❌']],RG=[['💖','✨','🎉'],['🌸','🪔','⭐'],['🎆','💫','❤️'],['🎈','🤩','🎀']];
+let la='';function anim(el,l){let c;do{c=pick(l)}while(c===la);la=c;el.classList.remove(...l);void el.offsetWidth;el.classList.add(c)}
+
+function gp(){$('#pr').value=1;$('#pn').textContent='1';$('#mp').textContent='';$('#bp').hidden=true;$('#pk').hidden=false}
+$('#pr').oninput=()=>{const v=+$('#pr').value;$('#pn').textContent=v>=10?'10+':v;tone(300+v*25,.05)};
+$('#pk').onclick=()=>{const v=+$('#pr').value,m=$('#mp');if(v>=10){m.textContent='Wahh! Poori football team ⚽👶 meri wali samajhdar hai';rain(pick(RG),10);boom();$('#pk').hidden=true;$('#bp').hidden=false}else{m.textContent=['Sirf '+v+'? Itne se football team poori nahi hogi','Itne kam? Dobara socho','Aur badhao, 10+ se kam me kaam nahi chalega'][Math.random()*3|0];wrong();anim($('#gp'),['shk','wob','drp','flp','zmo'])}};
+*/
+// ---------- babies: troll buttons
+const PM=['Pakad ke dikhao','Itne kam nahi chalega','Button bhi darr gaya','Nahi nahi, isse zyada!','Aur badhao, bohot aur'];
+function gp(){const a=$('#ba'),W=a.clientWidth;a.innerHTML='';$('#mp').textContent='Ek button chuno';$('#bp').hidden=true;$('#pk').hidden=false;
+ for(let i=1;i<=10;i++){const b=document.createElement('button');b.className='nb';b.textContent=i;b.style.left=(8+((i-1)%5)*((W-68)/4))+'px';b.style.top=(30+Math.floor((i-1)/5)*90)+'px';
+  const run=e=>{e.preventDefault();b.style.left=Math.random()*(a.clientWidth-52)+'px';b.style.top=Math.random()*(a.clientHeight-48)+'px';tone(200+Math.random()*200,.08);$('#mp').textContent=pick(PM)};
+  b.onpointerdown=run;b.onmouseenter=run;a.appendChild(b)}}
+$('#pk').onclick=()=>{$('#mp').textContent='Wahh! Meri wali samajhdar hai, mujhe bhi yahi chahiye';$('#pk').hidden=true;$('#bp').hidden=false;try{rain(pick(RG),10);boom()}catch(e){}setTimeout(()=>{if(pages[cur].id==='gp')go(cur+1)},2800)};
+// ---------- fireworks lab
+const rx=()=>innerWidth*(.2+Math.random()*.6),ry=()=>innerHeight*(.15+Math.random()*.3);
+function rocket(x){let y=innerHeight;const ty=innerHeight*(.15+Math.random()*.25),t=setInterval(()=>{y-=14;P.push({x:x+Math.random()*4-2,y,vx:0,vy:1,l:.6,c:'#ffd166',d:.05});if(y<=ty){clearInterval(t);burst(x,y,90)}},16);tone(500,.4)}
+function heartFW(){const x=rx(),y=ry();for(let i=0;i<70;i++){const t=i/70*Math.PI*2,hx=16*Math.pow(Math.sin(t),3),hy=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t);P.push({x,y,vx:hx*.2,vy:-hy*.2,l:1.2,c:'#ff4d79',g:.01,d:.009})}pop(true)}
+function spiralFW(){const x=rx(),y=ry();let i=0;const t=setInterval(()=>{const a=i*.45;for(let k=0;k<2;k++){const b=a+k*Math.PI;P.push({x,y,vx:Math.cos(b)*3.2,vy:Math.sin(b)*3.2,l:1,c:`hsl(${i*8},100%,60%)`,g:.01})}if(++i>70)clearInterval(t)},18);pop()}
+function fountFW(){const x=innerWidth*(.25+Math.random()*.5);let n=0;const t=setInterval(()=>{for(let k=0;k<6;k++)P.push({x,y:innerHeight*.85,vx:(Math.random()-.5)*3,vy:-(6+Math.random()*5),l:1,c:`hsl(${35+Math.random()*20},100%,60%)`,g:.12,d:.012});if(++n>60)clearInterval(t)},20);pop()}
+function sparkFW(){const x=rx(),y=innerHeight*.45;let n=0;const t=setInterval(()=>{for(let k=0;k<5;k++){const a=Math.random()*7,v=1+Math.random()*3;P.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:.7,c:'#fff3c4',g:.06,d:.03})}if(++n>100)clearInterval(t)},20);tone(1200,.1)}
+function starFW(){const x=rx(),y=ry();for(let k=0;k<5;k++){const a=k*Math.PI*2/5-Math.PI/2;for(let s=1;s<=8;s++)P.push({x,y,vx:Math.cos(a)*s*.7,vy:Math.sin(a)*s*.7,l:1.1,c:'#ffd166',g:.01,d:.01})}pop(true)}
+const FT=[['🎆','Gola',()=>{burst(rx(),ry(),90);setTimeout(()=>burst(rx(),ry(),70),250)}],['🚀','Rocket',()=>rocket(rx())],['💖','Dil',heartFW],['🌀','Chakri',spiralFW],['⛲','Anaar',fountFW],['✨','Phooljhadi',sparkFW],['⭐','Taara',starFW]];
+const PR=['Ye apni pehli Diwali hai, aur hum door hain 💗','Par door hone se pyaar kam nahi hota, bas intezaar badh jata hai.','Isliye ek wada karta hoon 💖','Agli Diwali hum saath me manayenge.','Diye bhi saath jalayenge, patakhe bhi saath chalayenge 💋','Tab tak bas tum khush rehna 💖'];
+function gx(){const f=$('#fb'),used=new Set();f.innerHTML='';f.hidden=false;$('#fp').hidden=false;$('#pmsg').hidden=true;$('#pmsg').innerHTML='';$('#bx').hidden=true;$('#fc').textContent=0;
+ FT.forEach(([e,n,fn])=>{const b=document.createElement('button');b.className='fw';b.innerHTML=e+'<small>'+n+'</small>';b.onclick=()=>{fn();used.add(n);b.classList.add('d');$('#fc').textContent=used.size;if(used.size==FT.length)setTimeout(promise,2400)};f.appendChild(b)})}
+function promise(){$('#fb').hidden=true;$('#fp').hidden=true;const m=$('#pmsg');m.hidden=false;
+ PR.forEach((s,i)=>{const p=document.createElement('p');p.className='ln';p.style.cssText='font-size:1.5rem;margin:0 0 .9rem';p.textContent=s;m.appendChild(p);setTimeout(()=>{p.classList.add('s');burst(Math.random()*innerWidth,Math.random()*innerHeight*.3,45,false)},600+i*2300)});
+ setTimeout(()=>{$('#bx').hidden=false;boom()},600+PR.length*2300)}
+</script>
+</body>
+</html>
